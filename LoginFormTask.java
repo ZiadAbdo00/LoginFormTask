@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class User {
+
+    // Todo: Add The Following Fields : username, password,role
     private String uName;
     private String uPass;
     private String uRole;
@@ -14,6 +16,7 @@ class User {
         this.uRole = uRole;
     }
 
+    // TODO: add getters
     public String getUsername() {
         return uName;
     }
@@ -31,6 +34,7 @@ class WelcomePage extends Frame {
 
     WelcomePage(User usr) {
         super("Welcome");
+        // TODO: build the page that says "Hello, username" and the role of the user
         setLayout(new BorderLayout(10, 20));
 
         Label welcomeLbl = new Label("Hello, " + usr.getUsername() + " (" + usr.getRole() + ")", Label.CENTER);
@@ -55,6 +59,7 @@ class WelcomePage extends Frame {
 
 public class LoginFormTask extends Frame {
 
+    // TODO: add list of users to seed
     List<User> userList = new ArrayList<>();
     Label msgLabel;
     TextField txtUser;
@@ -110,6 +115,7 @@ public class LoginFormTask extends Frame {
         add(card);
 
         btnLogin.addActionListener(e -> {
+            // TODO: the login logic
             String u = txtUser.getText().trim();
             String p = txtPass.getText().trim();
             String r = roleChoice.getSelectedItem();
@@ -140,7 +146,10 @@ public class LoginFormTask extends Frame {
             dispose();
         });
 
-        btnCancel.addActionListener(e -> dispose());
+        btnCancel.addActionListener(e -> {
+            // TODO: close the window
+            dispose();
+        });
 
         addWindowListener(new WindowAdapter() {
             @Override
@@ -152,12 +161,14 @@ public class LoginFormTask extends Frame {
     }
 
     private void loadUsers() {
+        // TODO: add at least 3 users to the list one for each role
         userList.add(new User("ahmed", "1234", "Student"));
         userList.add(new User("mona", "ta123", "TA"));
         userList.add(new User("dr_ali", "prof123", "Professor"));
     }
 
     private User findUser(String name) {
+        // TODO: search the list for the user
         for (User u : userList) {
             if (u.getUsername().equalsIgnoreCase(name)) {
                 return u;
